@@ -30,7 +30,6 @@ public class PassbyValue_Reference {
 
 	//static method is belong to class rather than object.
 	//invoke without the need of class.
-	
 	public static void passByValue(int value){
 		value = 20;
 	}
@@ -50,5 +49,4 @@ public class PassbyValue_Reference {
 		// change to 20 because the pointer of actual varibale is being passed.
 		System.out.println(arrValue[0]);
 	}
-
 }

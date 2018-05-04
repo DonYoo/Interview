@@ -33,15 +33,17 @@ arraylistobject.add(23);  // try to add 23 (primitive)
  
  5. Multiple-dimension
  Array can be multiple dimension and ArrayList is single dimension
- 
-Implementation of ArrayList
-To implement an ArrayList with an Array, use array but keep the track of array size.
-default size is 10. if the input is getting bigger than capacity, make it double.
 
  * 
  */
 
 public class myArrayList<T> {
+	/*
+	 * Implementation of ArrayList
+	To implement an ArrayList with an Array, use array but keep the track of array size.
+	default size is 10. if the input is getting bigger than capacity, make it double.
+	 */
+	
 	Object [] currentArray;
 	
 	int capacity_size = 10;
@@ -82,5 +84,4 @@ public class myArrayList<T> {
 		}	
 		System.out.println(test.get(11));
 	}
-
 }

@@ -13,8 +13,8 @@ Queue - FIFO
 Queue		O(n)	O(n)	O(1)	O(1)	O(n)
 
 add(), poll()
-add()  = add top of the queue
-poll() = get bottom item from the queue.
+add()  = add left of the queue
+poll() = get right item from the queue.
 
 Stack
 push() = add top of the queue

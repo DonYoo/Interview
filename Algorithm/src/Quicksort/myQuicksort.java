@@ -55,16 +55,16 @@ public class myQuicksort {
 	}
 
 	public static void main(String[] args) {
-		int[] sample = {10,80,30,90,40,50,70};
-		for(int i =0; i<sample.length; i++){
-			System.out.print(sample[i] + " ");
+		int[] arr = {10,80,30,90,40,50,70};
+		for(int i =0; i<arr.length; i++){
+			System.out.print(arr[i] + " ");
 		}
 		
 		System.out.println();
-		quickSort(sample, 0, sample.length-1);
+		quickSort(arr, 0, arr.length-1);
 		
-		for(int i =0; i<sample.length; i++){
-			System.out.print(sample[i] + " ");
+		for(int i =0; i<arr.length; i++){
+			System.out.print(arr[i] + " ");
 		}
 	}
 }

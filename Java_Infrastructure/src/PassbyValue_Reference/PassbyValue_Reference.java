@@ -15,21 +15,10 @@ it means that a reference or a pointer to the actual variable is being passed
 to the method and not the actual variable data.
 
 
- * Java static method
- * 
-
-A static method belongs to the class rather than object of a class.
-A static method can be invoked without the need for creating an instance of a class.
-static method can access static data member and can change the value of it.
-
-ex) Math.pow()
-
  */
 
 public class PassbyValue_Reference {
 
-	//static method is belong to class rather than object.
-	//invoke without the need of class.
 	public static void passByValue(int value){
 		value = 20;
 	}
@@ -40,6 +29,7 @@ public class PassbyValue_Reference {
 	
 	public static void main(String[] args) {
 		int value = 10;
+		
 		passByValue(value);
 		// remains as 10 because copy of variable has passed.
 		System.out.println(value);

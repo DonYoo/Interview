@@ -18,19 +18,23 @@ or require access modifiers other than public (such as protected and private).
 
 abstract class Person{
 	abstract void definition();
+	public String name = "";
+	
 	void mind() {
-		System.out.print("Person have warm mind");
+		System.out.println(name + " have warm mind");
 	}
 }
 
 class student extends Person{
 	void definition() {
+		super.name = "student";
 		System.out.println("this is student");
 	}
 }
 
 class employee extends Person{
 	void definition(){
+		super.name = "employee";
 		System.out.println("this is employee");
 	}
 }
@@ -43,7 +47,7 @@ class employee extends Person{
 
 It is total abstraction, All methods declared within an interface must be implemented by the class(es) that implements this interface.
 A class can implement more than one interface. It is called multiple inheritance.
-You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
+You want to "specify the behavior of a particular data type, but not concerned about who implements its behavior."
  * 
  * 
  */
@@ -55,10 +59,6 @@ interface Human{
 interface People{
 	void definition();
 	void salary();
-	
-	static void mind(){
-		System.out.println("Person have warm mind");
-	}
 }
 
 class Teacher implements People, Human{
@@ -72,6 +72,7 @@ class Teacher implements People, Human{
 		System.out.println("this is employee");
 	}
 	
+	// individual method for Teacher
 	public void mind(){
 		System.out.println("teacher has warm mind");
 	}

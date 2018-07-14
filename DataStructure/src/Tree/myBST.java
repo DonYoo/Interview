@@ -6,6 +6,7 @@ package Tree;
 					Access		search		insert		delete		space
 BinarySearchTree	O(log n)	O(log n)	O(log n)	O(log n)	O(n)
 
+binary search trees (BST), sometimes called ordered or sorted binary trees, 
 
 sample input
 
@@ -29,9 +30,9 @@ class Node<T>{
 public class myBST {
 	
 	// recursive.
-	public static Node insert(Node node, int data){
+	public static Node<Integer> insert(Node<Integer> node, int data){
 		if(node == null){
-			node = new Node(data);
+			node = new Node<>(data);
 			return node;
 		}
 		
@@ -83,7 +84,6 @@ public class myBST {
 		for(int each : input){
 			node = insert(node, each);
 		}
-		
 		
 		System.out.print("inorder :");
 		inorder(node);

@@ -8,7 +8,7 @@ package Stack;
 Stack - FILO
 
 			Access	search	insert	delete	space
-Queue		O(n)	O(n)	O(1)	O(1)	O(n)
+Stack		O(n)	O(n)	O(1)	O(1)	O(n)
 
 push(), pop()
 push()  = add top of the stack

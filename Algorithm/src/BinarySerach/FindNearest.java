@@ -28,8 +28,8 @@ There must be no duplicate nodes.
 
 public class FindNearest {
 
-	public static int findNearest(Node root, int target){
-		int value = root.data;
+	public static int findNearest(Node<Integer> root, int target){
+		int value =  root.data;
 		
 		// if the value and target match
 		if(value == target){
@@ -65,7 +65,7 @@ public class FindNearest {
 	}
 	
 	public static void main(String[] args) {
-		Node head = new Node(9);
+		Node<Integer>head = new Node<>(9);
 		int [] input = {4,3,6,5,7,17,22,20};
 		
 		for(int i: input){

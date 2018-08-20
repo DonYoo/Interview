@@ -16,11 +16,11 @@ sample input
 */
 
 class Node<T>{
-	Node leftchild;
-	Node rightchild;
-	int data;
+	Node<T> leftchild;
+	Node<T> rightchild;
+	T data;
 	
-	public Node(int data){
+	public Node(T data){
 		leftchild = null;
 		rightchild = null;
 		this.data = data;
@@ -48,7 +48,7 @@ public class myBST {
 	}
 	
 	// inorder : left root right
-	public static void inorder(Node head){
+	public static void inorder(Node<Integer> head){
 		if(head == null){
 			return;
 		}
@@ -58,7 +58,7 @@ public class myBST {
 	}
 	
 	// preorder : root left right
-	public static void preorder(Node head){
+	public static void preorder(Node<Integer> head){
 		if(head == null){
 			return;
 		}
@@ -67,8 +67,8 @@ public class myBST {
 		preorder(head.rightchild);
 	}
 
-	// inorder : left right root
-	public static void postorder(Node head){
+	// postorder : left right root
+	public static void postorder(Node<Integer> head){
 		if(head == null){
 			return;
 		}
@@ -80,7 +80,7 @@ public class myBST {
 	public static void main(String[] args) {
 		int[] input = {3, 7, 12, 2, 14, 11};
 		
-		Node node = new Node(10);
+		Node<Integer> node = new Node<>(10);
 		for(int each : input){
 			node = insert(node, each);
 		}

@@ -27,16 +27,37 @@ public class PassbyValue_Reference {
 		arrValue[0] = 20;
 	}
 	
+	public static void passString(String a){
+		a = "def";
+	}
+	
 	public static void main(String[] args) {
 		int value = 10;
 		
-		passByValue(value);
+		
 		// remains as 10 because copy of variable has passed.
-		System.out.println(value);
+		System.out.println("passByValue");
+		System.out.println("Original :" + value);
+		passByValue(value);
+		System.out.println("new :" + value);
+		
+		System.out.println();
 		
 		int [] arrValue = {10};
-		passByReference(arrValue);
+		
 		// change to 20 because the pointer of actual varibale is being passed.
-		System.out.println(arrValue[0]);
+		System.out.println("passByReference");
+		System.out.println("Original :" + arrValue[0]);
+		passByReference(arrValue);
+		System.out.println("new :" + arrValue[0]);
+		
+		
+		System.out.println();
+		System.out.println("passByString");
+		String a = "abc";
+		System.out.println("Original :" + a);
+		passString(a);
+		System.out.println("new :" + a);
+		
 	}
 }

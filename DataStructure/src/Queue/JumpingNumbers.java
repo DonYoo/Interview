@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 https://practice.geeksforgeeks.org/problems/jumping-numbers/0
 
-answer
+answer using queue
 https://ide.geeksforgeeks.org/TzuVQBjA0X
 
 
@@ -65,12 +65,20 @@ public class JumpingNumbers {
 				if(temp <= input){
 					System.out.print(" "+temp);
 				}
-				if(temp-1)
-				queue.add(e)
-				
-				
+				//if it is worth it to go 10times of the temp.
+				if(temp*10-1 <= input){
+					int rightmost = temp%10; 
+					// calculate right most digit and make a jumping number
+					if(rightmost!= 0){
+						queue.add( temp*10 + (rightmost-1));
+					}
+					if(rightmost != 9){
+						queue.add( temp*10 + (rightmost+1));
+					}
+				}
 			}
 		}
+		System.out.println();
 	}
 
 	public static void main(String[] args) {

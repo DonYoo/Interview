@@ -10,12 +10,12 @@ package BinarySerach;
  */
 
 
-class Node{
-	Node leftchild;
-	Node rightchild;
-	int data;
+class Node<T>{
+	Node<T> leftchild;
+	Node<T> rightchild;
+	T data;
 	
-	public Node(int data){
+	public Node(T data){
 		leftchild = null;
 		rightchild = null;
 		this.data = data;
@@ -30,9 +30,9 @@ class Node{
  */
 public class BinarySearchTree {
 
-	public static Node insert (Node head, int data){
+	public static Node<Integer> insert (Node<Integer> head, int data){
 		if(head == null){
-			head = new Node(data);
+			head = new Node<Integer>(data);
 			return head;
 		}
 		// if the input is small then head value.
@@ -49,7 +49,7 @@ public class BinarySearchTree {
 	}
 	
 	// inorder (Left, Root, Right) 2,3,7,10,11,12,14
-	public static void inorder (Node head){
+	public static void inorder (Node<Integer> head){
 		if (head == null){
 			return;
 		}
@@ -59,7 +59,8 @@ public class BinarySearchTree {
 	}
 	
 	// Preorder (Root, Left, Right)
-	public static void preorder(Node head){
+	// preorder :10 3 2 7 12 11 14 
+	public static void preorder(Node<Integer> head){
 		if (head == null){
 			return;
 		}
@@ -69,7 +70,7 @@ public class BinarySearchTree {
 	}
 	
 	// Postorder (Left, Right, Root) 2,7,3,11,14,12,10
-	public static void postorder(Node head){
+	public static void postorder(Node<Integer> head){
 		if (head == null){
 			return;
 		}
@@ -82,7 +83,7 @@ public class BinarySearchTree {
 	public static void main(String[] args){
 		int[] input = {3, 7, 12, 2, 14, 11};
 		
-		Node node = new Node(10);
+		Node <Integer> node = new Node<>(10);
 		for(int each : input){
 			node = insert(node, each);
 		}

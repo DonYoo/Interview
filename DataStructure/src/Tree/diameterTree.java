@@ -107,15 +107,15 @@ public class diameterTree {
 	public static void main(String[] args) {
 		myNode <Integer>node = new myNode<>(10);
 		
-		int arr[] = {20,30,40,60};
+		//int arr[] = {20,30,40,60};
 		/*
 		for(int i=0; i<arr.length; i++){
 			insert(node, arr[i]);
 		}
 		*/
-		node = new myNode(1);
-		node.leftchild = new myNode(2);
-		node.rightchild = new myNode(3);
+		node = new myNode<Integer>(1);
+		node.leftchild = new myNode<Integer>(2);
+		node.rightchild = new myNode<Integer>(3);
 		
 		int [] height = {0};
 		

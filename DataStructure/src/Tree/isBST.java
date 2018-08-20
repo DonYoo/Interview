@@ -21,8 +21,6 @@ https://practice.geeksforgeeks.org/problems/check-for-bst/1
 public class isBST {
 
 	private static int maximum = -1;
-	private static boolean answer = true;
-	
 	private static int result = 1;
 	
 	public static void isBSTcheck(Node<Integer> node){
@@ -31,24 +29,23 @@ public class isBST {
 		}
 		isBSTcheck(node.leftchild);
 		if(maximum >= node.data){
-			answer = false;
 			return;
 		}
 		maximum = node.data;
 		isBSTcheck(node.rightchild);
 	}
 	
-	public static int isBST(Node node)  
+	public static int isthisBST(Node<Integer> node)  
     {
 		if(node == null){
 			return result;
 		}
-		isBST(node.leftchild);
+		isthisBST(node.leftchild);
 		if(maximum >= node.data){
 			result = 0;
 		}
 		maximum = node.data;
-        isBST(node.rightchild);
+		isthisBST(node.rightchild);
         return result;
     }
 
@@ -62,7 +59,7 @@ public class isBST {
 		
 		myBST.inorder(root);
 		System.out.println();
-		System.out.println(isBST(root));
+		System.out.println(isthisBST(root));
 	}
 
 }

@@ -98,11 +98,11 @@ public class Painter_Partition {
 	}
 
 	public static void main(String[] args) {
-		int arr[] = { 10, 20, 60, 50, 30, 40 };
+		int arr[] = { 250, 74, 159, 181, 23, 45, 129, 174};
 
 	    // Calculate size of array.
 		int size = arr.length;
-	    int painter = 3;
+	    int painter = 6;
 	    System.out.println(partition(arr, size, painter));
 	}
 

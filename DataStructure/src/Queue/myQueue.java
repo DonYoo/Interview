@@ -16,12 +16,31 @@ add(), poll()
 add()  = add top of the queue
 poll() = get bottom item from the queue.
 
-Stack
+
+
+Stack - FILO
+
 push() = add top of the queue
 pop()  = get top item from the queue.
 
 implement queue using stack
 created 2 stacks. move value over to another as reversed order then pop value from there.
+
+
+add = push.
+
+The two statements you've written each construct a LinkedList<String> object to hold a list of strings, then assign it to a variable. The difference is in the type of the variable.
+
+By assigning the LinkedList<String> to a variable of type Queue<String>, you can only access the methods in the LinkedList that are available in the Queue<String> interface, which includes support for enqueuing and dequeuing elements. This would be useful if you needed to write a program that used a queue for various operations and wanted to implement that queue by using a linked list.
+
+By assigning the LinkedList<String> to a variable of type List<String>, you can only access the methods in the LinkedList that are available in the List<String> interface, which are normal operations for maintaining a sequence of elements. This would be useful, for example, if you needed to process a list of elements that could grow and shrink anywhere.
+
+In short, the two lines create the same object but intend to use them in different ways. One says that it needs a queue backed by a linked list, while the other says that it needs a general sequence of elements backed by a linked list.
+
+Hope this helps!
+
+
+
 
 *
 *

@@ -1,5 +1,6 @@
 package Tree;
 
+import java.util.*;
 /**
  * 
  * @author DonYoo
@@ -53,47 +54,71 @@ space : O(n)
 
  */
 
+class Nodes
+{
+    char data;
+    Nodes left, right;
+    Nodes(char key)
+    {
+        data = key;
+        left = right = null;
+    }
+}
+
 public class dubSub {
 	
-	static String storage;
-	
-	// left root right
-	private static void inorder(Node<String> node) {
-		if(node == null){
-			return;
-		}
-		inorder(node.leftchild);
-		storage = storage.concat(node.data);
-		inorder(node.rightchild);		
-	}
-	
-	static int duplicate(Node<String> node){
-		inorder(node);
-		System.out.println(storage);
-		for(int i=0; i<storage.length()-2; i++){
-			String temp = storage.substring(i, i+3);
-			if(storage.substring(i+2).contains(temp)){
-				return 1;
-			}
-		}
-		return 0;
-	}
-
-	
+    static final char MARKER = '$';
+    static Set<String> subtrees = new HashSet<String>();
+    public static boolean dupSub(Nodes root)
+    {
+        subtrees.clear();
+        
+        String res = dupSubUtil(root);
+        if(res.compareTo("") == 0)
+        return true;
+        else
+        return false;
+    }
+    
+    public static String dupSubUtil(Nodes root)
+    {
+        String s = "";
+        
+        if(root == null)
+         return s + MARKER;
+         
+        String lStr = dupSubUtil(root.left);
+        if (lStr.compareTo(s) == 0)
+            return s;
+            
+        String rStr = dupSubUtil(root.right);
+       if (rStr.compareTo(s) == 0)
+           return s;
+           
+        s = s + root.data + lStr + rStr;
+        
+         if (s.length() > 3 && subtrees.contains(s) == true)
+                return "";
+                
+        subtrees.add(s);
+ 
+        return s;
+    }
+    
 
 	public static void main(String[] args) {
-		Node<String> temp = new Node<>("a");
-		temp.leftchild = new Node<String>("b");
-		temp.rightchild = new Node<String>("c");
-		temp.rightchild.rightchild = new Node<String>("b");
-		temp.leftchild.leftchild= new Node<String>("d");
-		temp.leftchild.rightchild = new Node<String>("e");
-		
-		temp.rightchild.rightchild.leftchild= new Node<String>("d");
-		temp.rightchild.rightchild.rightchild = new Node<String>("e");
-		
-		storage = "";
-		System.out.println(duplicate(temp));
+		Nodes temp = new Nodes('a');
+		temp.left = new Nodes('b');
+		temp.left.left = new Nodes('d');
+		temp.left.right = new Nodes('e');
+		temp.left.right.right = new Nodes('k');
+
+		temp.right = new Nodes('c');
+		temp.right.right = new Nodes('b');
+		temp.right.right.left = new Nodes('d');
+		temp.right.right.right = new Nodes('e');
+
+		System.out.println(dupSub(temp));
 		
 	}
 

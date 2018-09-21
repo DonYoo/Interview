@@ -41,6 +41,58 @@ Output:
  */
 
 
+// which of the following sorting algorithms has the best asymptotic runtime complexity?
+
+
+class GfG
+{
+	public boolean findTriplets(int arr[] , int n)
+	{
+		Map<Integer, Integer> map = new HashMap<>();
+		
+		// Basically make it distinct
+		// put them in the map. map<key, value>
+		//						map<input, frequency>
+
+		for(int i:arr){
+			
+			// if key is already exist, increment the value.
+			if(map.containsKey(i)){
+				map.replace(i, map.get(i)+1);
+			}
+			// if its new, add to map
+			else{
+				map.put(i, 1);
+			}
+		}
+
+		for(int i=0; i<n; i++){
+			// take out first one. decrease value.
+			int first = arr[i];
+			map.replace(first, map.get(first)-1);
+			
+			for(int j=i+1; j<n; j++){
+				// take out second one. decrease value.
+				int second = arr[j];
+				map.replace(second, map.get(second)-1);
+				
+				// find negative number of sum.
+				int sum = (first + second) * -1;
+				// if map has the negative value that sum of first and second.
+				// and if that value has not used
+				if(map.containsKey(sum) && map.get(sum) > 0){
+					return true;
+				}
+				// replace back one that i uses
+				map.replace(second, map.get(second)+1);
+			}
+			map.replace(first, map.get(first)+1);
+		}
+		return false;
+	}
+}
+
+
 public class Triplets {
 	public static void main(String[] args){
 		Scanner sc=new Scanner(System.in);
@@ -51,6 +103,8 @@ public class Triplets {
 			for(int i=0;i<n;i++){
 				a[i]=sc.nextInt();
 			}
+			
+			
 			GfG g=new GfG();
 			if(g.findTriplets(a,n))
 				System.out.println("1");
@@ -58,35 +112,5 @@ public class Triplets {
 				System.out.println("0");
 		}
 		sc.close();
-	}
-
-}
-
-class GfG
-{
-	public boolean findTriplets(int arr[] , int n)
-	{
-		Map<Integer, Integer> map = new HashMap<>();
-		for(int i=0;i<arr.length;i++){
-			if(map.containsKey(arr[i])){
-				map.replace(arr[i], map.get(arr[i]++));
-			}
-			else{
-				map.put(arr[i], 1);
-			}
-		}
-
-		for(int k =0; k<arr.length; k++){
-			map.replace(arr[k], (map.get(arr[k]))-1);
-			for(int j=k+1; j<arr.length; j++){
-				map.replace(arr[j], map.get(arr[j])-1);
-				if(map.containsKey((arr[k]+arr[j])*-1) && (map.get((arr[k]+arr[j])*-1) >0) ){
-					return true;
-				}
-				map.replace(arr[j], map.get(arr[j])+1);
-			}
-			map.replace(arr[k], map.get(arr[k])+1);
-		}
-		return false;
 	}
 }

@@ -62,45 +62,42 @@ public class meta_string {
 	
 	public static Scanner scan;
 
-	
 	private static int meta(String first, String second){
-		int size = first.length();
-		int swap = 0;
-		
-		char prvf = '\n';
-		char prvs = '\n';
-		
-		for(int i =0; i<size; i++){
-			
-			char fst = first.charAt(i);
-			char scd = second.charAt(i);
-			
-			
-			// if the character doesnt match.
-			if(fst != scd){
-
-				swap++;
-			
-				// if there more than 2 different char
-				if(swap > 2){
-					return 0;
-				}
-				else if(swap == 2){
-					if((prvf != scd) ||
-							(prvs != fst)){
-						return 0;
-					}
-				}
-				else if(swap == 1){
-					prvf = fst;
-					prvs = scd;
-				}
-			}
-		}
-		if(swap == 2){
-			return 1;
-		}
-		return 0;
+		if(first.equals(second)){
+            return 0;
+        }
+        if(first.length() != second.length()){
+            return 0;
+        }
+        
+        char fsave = 0;
+        char ssave = 0;
+        
+        int count = 1;
+        
+        for(int i=0; i<first.length(); i++){
+            char fchar = first.charAt(i);
+            char schar = second.charAt(i);
+            
+            if(fchar != schar){
+                if(count != 0){
+                    fsave = fchar;
+                    ssave = schar;
+                    count--;
+                }
+                else if(count == 0){
+                    if(fchar != ssave ||
+                        schar != fsave){
+                            return 0;
+                        }
+                }
+                // there is more than one different char 
+                else{
+                    return 0;
+                }
+            }
+        }
+        return 1;
 	}
 	
 	

@@ -118,6 +118,7 @@ public class myMergeSort {
 			for(int j=0; j<input.length; j++){
 				System.out.print(input[j]+ " ");
 			}
+			System.out.println();
 		}
 	}
 

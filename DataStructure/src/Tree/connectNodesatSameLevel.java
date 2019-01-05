@@ -4,24 +4,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 
  * @author DonYoo
+ * 
 
 https://practice.geeksforgeeks.org/problems/connect-nodes-at-same-level/1
 
 Write a function to connect all the adjacent nodes at the same level in a binary tree. Structure of the given Binary Tree node is like following.
-
  
 struct Node{
-
   int data;
 
   Node* left;
 
   Node* right;
 
-  Node* nextRight; 
-
+  Node* nextRight;
 }
 
 
@@ -75,8 +72,7 @@ There are two test casess.  First case represents a tree with 3 nodes and 2 edge
 
 The output contains level order and inorder traversals of the modified tree.  Level order traversal is done using nextRight pointers.
 
-
-
+ *
  */
 
 class thisNode {

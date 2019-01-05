@@ -29,6 +29,9 @@ Input : geeksforgeeks
 Output : 3
 (geeks)(for)(geeks)
 
+
+O(n) time complexity
+
  */
 
 

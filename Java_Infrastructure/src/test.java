@@ -1,7 +1,7 @@
 
 public class test {
 
-	public static void sum (int[] b, int c){
+	public static void change (int[] b, int c){
 		b[0] = 10;
 		b[1] = 20;
 		
@@ -9,7 +9,6 @@ public class test {
 	}
 	
 	public static void main(String[] args) {
-		int a = 10;
 
 		int [] b = {1,2};
 		
@@ -17,12 +16,18 @@ public class test {
 			System.out.print(b[i] + " ");
 		}
 		
+		System.out.println();
+		
 		int c = 3;
 		
-		sum(b, c);
+		change(b, c);
+		
 		for(int i =0; i<b.length; i++){
 			System.out.print(b[i] + " ");
 		}
+		
+		System.out.println();
+		
 		System.out.println(c);
 		
 	}

@@ -45,65 +45,73 @@ Output:
 5
 4
 
+time complexity
+O(n)
 
  */
-
 
 
 public class median {
 
 	static Scanner scan;
 	
-	private static void findMedian(int[] input){
-		
-		// put min as reversed since queue only can poll. ********
-		// 5 4 3 2 1
-		Queue<Integer> min = new PriorityQueue<>(Collections.reverseOrder());
-		// 6 7 8 9 10
-		Queue<Integer> max = new PriorityQueue<>();
-		
-		int inputsize = input.length;
-		
-		for(int i=0; i<inputsize; i++){
-
-			min.add(input[i]);
-			if(min.size()> max.size()){
-				max.add(min.poll());
-			}
-			if((min.size() != 0) && (min.peek() > max.peek())){
-				int temp = min.poll();
-				min.add(max.poll());
-				max.add(temp);
-			}
-
-			// odd size
-			if(i%2 ==0){
-				if(min.size() > max.size()){
-					System.out.println(min.peek());
-				}
-				else{
-					System.out.println(max.peek());
-				}				
-			}
-			// even
-			else{
-				System.out.println((min.peek() + max.peek())/2);
-			}
-		}
-	}
-	
 	public static void main(String[] args) {
 		scan = new Scanner(System.in);
-		
-		int inputsize = scan.nextInt();
-		
-		int[] input = new int[inputsize];
-		
-		for(int i=0; i<inputsize; i++){
-			input[i] = scan.nextInt();
-		}
-		
-		findMedian(input);
+	    int testcase = scan.nextInt();
+	    
+	    // need to make 2 different priority queue.
+        // leftone has reversed que
+        // rightone has normal que
+        
+        Queue<Integer> left  = new PriorityQueue<>(Collections.reverseOrder());
+        Queue<Integer> right = new PriorityQueue<>();
+        
+	    while(testcase-->0){
+	        int input = scan.nextInt();
+	        
+	        // if their size are the same.
+	        if(left.size() == right.size() ||
+	            left.size() < right.size()){
+	            // if they are both empty.
+	            if(left.size() == 0){
+	                left.add(input);
+	            }
+	            else{
+	                // least from right side
+	                int min = right.peek();
+	                // most from left side
+	                int max = left.peek();
+	                
+	                // if input is bigger than rightside least, 
+	                // add new input to right and move least to leftside
+	                if(input > min){
+	                    right.add(input);
+	                    left.add(right.poll());
+	                }
+	                else{
+	                    left.add(input);
+	                }
+	            }
+	        }
+	        // when leftone has 1 more than right one.
+	        else{
+	            left.add(input);
+	            right.add(left.poll());
+	        }
+	        
+            // either way, leftone would have 1 more item.
+            if(left.size() > right.size()){
+                System.out.println(left.peek());
+            }
+            // rightone has 1 more item.
+            else if(right.size() > left.size()){
+                System.out.println(right.peek());
+            }
+            // if they are same size.
+	        else{
+	            System.out.println( (right.peek() + left.peek())/2 );
+	        }
+	        
+	    }
 	}
-
 }

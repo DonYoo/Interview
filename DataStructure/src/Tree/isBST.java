@@ -17,36 +17,32 @@ the following tree is not BST, because 11 is in left subtree of 10.
 
 https://practice.geeksforgeeks.org/problems/check-for-bst/1
 
+process time : O(n)
+space : O(1)
+
  */
 public class isBST {
-
-	private static int maximum = -1;
-	private static int result = 1;
 	
-	public static void isBSTcheck(Node<Integer> node){
+	public static boolean isit(Node<Integer> node, int min, int max){
+		
+		// if tree is empty
 		if(node == null){
-			return;
+			return true;
 		}
-		isBSTcheck(node.leftchild);
-		if(maximum >= node.data){
-			return;
+		
+		// if node violates the min/max
+		if(node.data <= min || node.data >= max){
+			return false;
 		}
-		maximum = node.data;
-		isBSTcheck(node.rightchild);
+		
+		// check subtrees recursively
+		return isit(node.leftchild, min, node.data) &&
+				isit(node.rightchild, node.data, max);
 	}
 	
-	public static int isthisBST(Node<Integer> node)  
+	public static boolean isthisBST(Node<Integer> node)  
     {
-		if(node == null){
-			return result;
-		}
-		isthisBST(node.leftchild);
-		if(maximum >= node.data){
-			result = 0;
-		}
-		maximum = node.data;
-		isthisBST(node.rightchild);
-        return result;
+		return isit(node, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
 	public static void main(String[] args) {
@@ -55,7 +51,6 @@ public class isBST {
 		myBST.insert(root, 39);
 		root.leftchild.rightchild = new Node<Integer>(9);
 		root.leftchild.leftchild = new Node<Integer>(6);
-		
 		
 		myBST.inorder(root);
 		System.out.println();

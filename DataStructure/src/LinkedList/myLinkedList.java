@@ -22,6 +22,19 @@ public class myLinkedList<T> {
 	private Node<T> head = null;
 	private Node<T> tail = null;
 	
+	
+	public Node<T> reverse(Node<T> head)
+	{
+		Node<T> newhead = null;
+		while(head.nextNode != null){
+			newhead = new Node<T>(head.nextNode.data);
+			newhead.nextNode = head;
+
+			head = head.nextNode;
+		}
+		return newhead;
+	}
+	
 	public void add(Node<T> node){
 		if(head == null){
 			head = node;
@@ -61,6 +74,8 @@ public class myLinkedList<T> {
 		System.out.println( test.get(5) );
 		test.remove(5);
 		System.out.println( test.get(5) );
+		
+		test.reverse(test.head);
 	}
 
 }

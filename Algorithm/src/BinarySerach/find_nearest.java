@@ -63,8 +63,6 @@ class testNode{
 
 public class find_nearest {
 	
-	static int min;
-	
 	private static int findNearest(testNode root, int target){
 		int current = root.data;
 		if(current == target){
@@ -95,7 +93,6 @@ public class find_nearest {
 	}
 
 	public static void main(String[] args) {
-		min = Integer.MAX_VALUE;
 		
 		int [] input = {4,3,6,5,7,17,22,20};
 		

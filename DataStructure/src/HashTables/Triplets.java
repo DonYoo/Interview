@@ -42,7 +42,7 @@ Output:
 
 
 // which of the following sorting algorithms has the best asymptotic runtime complexity?
-
+// O(n^2 + n)
 
 class GfG
 {

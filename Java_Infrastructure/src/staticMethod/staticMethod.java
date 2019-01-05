@@ -29,10 +29,10 @@ class Sample{
 	}
 	
 	public void testinNotstatic(){
-		// calling static inside of class
+		// calling static in non static function
 		yesStatic();
 		
-		// calling non static inside of class
+		// calling non static inside non static function
 		notStatic();
 	}
 	
@@ -42,6 +42,8 @@ class Sample{
 		
 		// calling non static inside of class
 		
+		Sample test = new Sample();
+		test.notStatic();
 		//Cannot make a static reference to the non-static method notStatic() from the type Sample
 		//because static only created once in the beginning. 
 		
@@ -59,6 +61,7 @@ public class staticMethod {
 		Sample objectclass = new Sample();
 		// regular method
 		objectclass.notStatic();
+		//objectclass.testinNotstatic();
 		
 		// static method
 		Sample.yesStatic();

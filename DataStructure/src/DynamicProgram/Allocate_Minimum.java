@@ -59,7 +59,6 @@ Therefore, the minimum of these cases is 113, which is selected as output.
 
 public class Allocate_Minimum {
 	static Scanner scan;
-	static int[][] matrix;
 	
 	private static int sum(int[] input, int from, int to){
 		
@@ -68,13 +67,12 @@ public class Allocate_Minimum {
 		for(int i=from; i<to; i++){
 			result += input[i];
 		}
-		
 		return result;
 	}
 	
 	private static int allocate(int numberInput, int[] input, int student){
 		
-		matrix = new int[student +1][numberInput +1];
+		int [][] matrix = new int[student +1][numberInput +1];
 		
 		// if there is only 1 student
 		for(int i=1; i<=numberInput; i++){
@@ -85,6 +83,10 @@ public class Allocate_Minimum {
 		for(int i=1; i<=student; i++){
 			matrix[i][1] = input[0];
 		}
+		
+		// now typical dp method.
+        // bottom to up
+        // 3 for loops for dp
 		
 		for(int i=2; i<=student; i++){
 			for(int j=2; j<=numberInput; j++){

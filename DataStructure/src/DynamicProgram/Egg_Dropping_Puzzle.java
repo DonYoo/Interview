@@ -16,7 +16,6 @@ answer
 https://medium.com/human-in-a-machine-world/the-egg-dropping-puzzle-a23f58a59374
 
 
-
 Dynamic Programming.
 
 is making a 1 or 2D array and put the value for every single

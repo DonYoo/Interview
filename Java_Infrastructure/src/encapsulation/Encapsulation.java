@@ -35,6 +35,10 @@ public class Encapsulation {
 	public static void main(String[] args) {
 		EncapsulationDemo obj = new EncapsulationDemo();
         obj.setEmpSSN(112233);
+        
+        // can't have ssn directly.
+        // int test = obj.ssn;
+        
         System.out.println("Employee SSN: " + obj.getEmpSSN());
 	}
 

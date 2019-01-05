@@ -80,6 +80,7 @@ OXXXOOO
 output:
 4
 
+Big O of O * 2 time.
  */
 
 public class matrixShape {
